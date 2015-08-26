@@ -6,4 +6,13 @@ export default Ember.Object.extend({
   pod: false,
   parent: null,
   children: [],
+
+  fullName: Ember.computed(function() {
+    if (this.get('parent')) {
+      return `${this.get('parent.fullName')}/${this.get('name')}`;
+    }
+
+    return this.get('name');
+  }),
 });
+
