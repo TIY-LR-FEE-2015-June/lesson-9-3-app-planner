@@ -26,3 +26,12 @@ test('it should compute the fullName property', function (assert) {
   assert.equal(child.get('fullName'), 'poll/form');
   assert.equal(subChild.get('fullName'), 'poll/form/create');
 });
+
+test('it should compute a url for routes', function(assert) {
+  var parent = RouteNode.create({name: 'polls', path: '/'});
+  var child = RouteNode.create({name: 'show', path: '/:poll_id', parent: parent});
+  var subChild = RouteNode.create({name: 'form', parent: child});
+
+  assert.equal(child.get('url'), '/:poll_id');
+  assert.equal(subChild.get('url'), '/:poll_id/form');
+});
