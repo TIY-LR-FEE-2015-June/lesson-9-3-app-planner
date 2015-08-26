@@ -1,10 +1,7 @@
-import { moduleFor, test } from 'ember-qunit';
+import { module, test } from 'qunit';
 import RouteNode from 'app-planner/models/route-node';
 
-moduleFor('model:route-node', 'Route Node Model Test', {
-  // Specify the other units that are required for this test.
-  needs: []
-});
+module('Unit | Route Node Model');
 
 test('it should have default properties', function (assert) {
   var model = RouteNode.create();
