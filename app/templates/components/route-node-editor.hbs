@@ -1,0 +1,12 @@
+<div class="route-node">
+  <span class="route-name">{{node.name}}</span>
+  <span class="route-url">{{node.url}}</span>
+
+  {{add-route-input node=node addNewChild='addChildToModel'}}
+
+  <ul>
+    {{#each node.children as |child|}}
+      {{route-node-editor node=child}}
+    {{/each}}
+  </ul>
+</div>

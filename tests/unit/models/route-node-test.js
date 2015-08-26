@@ -31,4 +31,11 @@ test('it should compute a url for routes', function(assert) {
 
   assert.equal(child.get('url'), '/:poll_id');
   assert.equal(subChild.get('url'), '/:poll_id/form');
+
+  var parent2 = RouteNode.create({name: 'application', path: '/'});
+  var child2 = RouteNode.create({name: 'pod', parent: parent2});
+  var subChild2 = RouteNode.create({name: 'x', parent: child2});
+
+  assert.equal(child2.get('url'), '/pod');
+  assert.equal(subChild2.get('url'), '/pod/x');
 });

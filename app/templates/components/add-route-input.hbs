@@ -1,0 +1,6 @@
+{{#if acceptingInput}}
+  {{input class='new-route-input' placeholder='New Route Name' value=newRouteName}}
+  <button class="save" {{action 'addNewRoute' newRouteName}}>Save</button>
+{{else}}
+  <button class="add-route" {{action 'startInput'}}>+ Add Route</button>
+{{/if}}

@@ -6,6 +6,9 @@ export default Ember.Object.extend({
   pod: false,
   parent: null,
   children: [],
+  createUniqueChildren: Ember.on('init', function() {
+    this.set('children', []);
+  }),
 
   fullName: Ember.computed(function() {
     if (this.get('parent')) {
@@ -19,7 +22,7 @@ export default Ember.Object.extend({
     var path = this.get('path') || `/${this.get('name')}`;
 
     if (this.get('parent') && this.get('parent.url') !== '/') {
-      return this.get('parent.path') + path;
+      return this.get('parent.url') + path;
     }
 
     return path;
